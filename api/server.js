@@ -6,6 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+// start server with "npm run start"
 const dbUrl = "mongodb://127.0.0.1:27017/mern-todo"; // for deployment, use .process.env.DB_URL
 // const dbUrl ='mongodb://127.0.0.1:27017/mern-todo'; // (local mongodb)
 
@@ -32,6 +34,14 @@ app.delete('/todos/delete/:id', async (req, res) => {
     const { id } = req.params;
     const result = await Todo.findByIdAndDelete(id);
     res.json(result);
+})
+
+app.put('/todos/complete/:id', async (req, res) => {
+    const { id } = req.params;
+    const todo = await Todo.findById(id);
+    todo.completed = !todo.completed;
+    todo.save();
+    res.json(todo);
 })
 
 // listen to server
