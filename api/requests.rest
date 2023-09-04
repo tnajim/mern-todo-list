@@ -10,3 +10,6 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/todos/delete/64f1ae79f9cb70001ab0e067
+
+###
+PUT http://localhost:3000/todos/complete/64f1ad43f9cb70001ab0e064
