@@ -42,7 +42,48 @@ h4 {
   border-radius: 16px;
   display: flex;
   align-items: center;
-  transition: 0.5s;
+  transition: 0.25s;
   cursor: pointer;
   margin-bottom: 16px;
+}
+
+.todo:hover {
+  opacity: 0.6;
+}
+
+.todo .checkbox {
+  width:  20px;
+  height: 20px;
+  margin-right: 16px;
+  border-radius: 999px;
+  background-color: var(--dark-alt);
+  transition: 0.4s;
+}
+
+.todo.is-complete .checkbox {
+  background-color: var(--primary);
+  background-image: linear-gradient(0deg, rgba(5,111,230,1) 0%, rgba(13,95,112,1) 95%);
+}
+
+.todo .text {
+  font-size: 20px;
+}
+
+.todo.todo.is-complete .text {
+  text-decoration: line-through;
+}
+
+.todo .delete-todo {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: var(--light);
+  background-color: #61759b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
