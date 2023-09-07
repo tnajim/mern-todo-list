@@ -38,9 +38,24 @@ function App() {
     // delete todo from the api db
     const data = await fetch(API_BASE + "/todos/delete/" + id, { method: "DELETE" })
       .then(res => res.json());
-
     // delete todo from the frontend
     setTodos(todos => todos.filter(todo => todo._id !== data._id));
+  }
+
+  const addTodo = async () => {
+    const data = await fetch(API_BASE + "/todos/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        text: newTodo
+      })
+    }).then(res => res.json());
+
+    setTodos([...todos, data]);
+    setPopupActive(false);
+    setNewTodo("");
   }
 
   return (
@@ -57,6 +72,20 @@ function App() {
             </div>
           ))}
         </div>
+
+        <div className="addPopup" onClick={() => setPopupActive(true)}>+</div>
+
+        {popupActive ? (
+          <div className="popup">
+            <div className="closePopup" onClick={() => setPopupActive(false)}>x</div>
+            <div className="content">
+              <h3>Add Task</h3>
+              <input type="text" className="add-todo-input" 
+              onChange={e => setNewTodo(e.target.value)} value={newTodo} />
+              <div className="add-button" onClick={addTodo}>Create Task</div>
+            </div>
+          </div>
+        ) : ""}
       </div>
     </>
   )
