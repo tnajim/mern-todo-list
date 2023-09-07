@@ -36,7 +36,7 @@ app.delete('/todos/delete/:id', async (req, res) => {
     res.json(result);
 })
 
-app.put('/todos/complete/:id', async (req, res) => {
+app.get('/todos/complete/:id', async (req, res) => {
     const { id } = req.params;
     const todo = await Todo.findById(id);
     todo.completed = !todo.completed;
