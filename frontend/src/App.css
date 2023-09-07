@@ -45,6 +45,7 @@ h4 {
   transition: 0.25s;
   cursor: pointer;
   margin-bottom: 16px;
+  user-select: none;
 }
 
 .todo:hover {
@@ -57,12 +58,11 @@ h4 {
   margin-right: 16px;
   border-radius: 999px;
   background-color: var(--dark-alt);
-  transition: 0.4s;
+  transition: 0.2s;
 }
 
 .todo.is-complete .checkbox {
   background-color: var(--secondary);
-  background-image: linear-gradient(0deg, rgba(5,111,230,1) 0%, rgba(13,95,112,1) 95%);
 }
 
 .todo .text {
