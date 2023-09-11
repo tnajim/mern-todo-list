@@ -43,20 +43,23 @@ function App() {
   }
 
   const addTodo = async () => {
-    const data = await fetch(API_BASE + "/todos/new", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        text: newTodo
-      })
-    }).then(res => res.json());
+    if (newTodo) {
+      const data = await fetch(API_BASE + "/todos/new", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          text: newTodo
+        })
+      }).then(res => res.json());
 
-    setTodos([...todos, data]);
-    setPopupActive(false);
-    setNewTodo("");
+      setTodos([...todos, data]);
+      setPopupActive(false);
+      setNewTodo("");
+    }
   }
+
 
   const handleInputKeyDown = (event) => {
     if (event.key === 'Enter') {
