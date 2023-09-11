@@ -103,6 +103,7 @@ h4 {
   color: var(--light);
   background-image: linear-gradient(to bottom, #172ae5, #004ce1, #005dd2, #0068bb, #0070a1);
   cursor: pointer;
+  user-select: none;
 }
 
 .popup {
@@ -120,17 +121,18 @@ h4 {
 
 .closePopup {
   position: absolute;
-  top: 20px;
-  right: 14px;
+  top: 26px;
+  right: 10px;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   color: var(--light);
   background-color: #61759b;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .popup h3 {
@@ -151,14 +153,20 @@ h4 {
   font-size: 20px;
 }
 
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .add-button {
   padding: 16px 32px;
   border-radius: 99px;
-  background-image: linear-gradient(to right, var(--primary), var(--secondary));
+  background-image: linear-gradient(to right, #172ae5, #004ce1, #005dd2, #0068bb, #0070a1);
   display: inline-block;
   font-weight: 700;
   font-size: 18px;
   margin-top: 16px;
   text-align: center;
   cursor: pointer;
+  user-select: none;
 }
