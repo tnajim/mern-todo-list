@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -8,8 +12,8 @@ app.use(cors());
 
 
 // start server with "npm run start"
-const dbUrl = "mongodb://127.0.0.1:27017/mern-todo"; // for deployment, use .process.env.DB_URL
-// const dbUrl ='mongodb://127.0.0.1:27017/mern-todo'; // (local mongodb)
+const dbUrl = process.env.DB_URL; // for deployment, use process.env.DB_URL
+// const dbUrl ='mongodb://127.0.0.1:27017/mern-todo'; // for local testing, use local db
 
 mongoose.connect(dbUrl)
     .then(() => console.log("MongoDB Connection Established."))
