@@ -17,11 +17,13 @@ mongoose.connect(dbUrl)
 
 const Todo = require('./models/Todo');
 
+// route to get all the todos
 app.get('/todos', async (req, res) => {
     const todos = await Todo.find();
     res.json(todos);
 })
 
+// route to create todos
 app.post('/todos/new', async (req, res) => {
     const todo = new Todo({
         text: req.body.text
@@ -30,12 +32,14 @@ app.post('/todos/new', async (req, res) => {
     res.json(todo);
 })
 
+// route to delete todos
 app.delete('/todos/delete/:id', async (req, res) => {
     const { id } = req.params;
     const result = await Todo.findByIdAndDelete(id);
     res.json(result);
 })
 
+// route to toggle completed status
 app.get('/todos/complete/:id', async (req, res) => {
     const { id } = req.params;
     const todo = await Todo.findById(id);
