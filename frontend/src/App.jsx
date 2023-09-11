@@ -58,6 +58,12 @@ function App() {
     setNewTodo("");
   }
 
+  const handleInputKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      addTodo();
+    }
+  };
+
   return (
     <>
       <div className="main-div">
@@ -80,9 +86,12 @@ function App() {
             <div className="closePopup" onClick={() => setPopupActive(false)}>x</div>
             <div className="content">
               <h3>Add Task</h3>
-              <input type="text" className="add-todo-input" 
-              onChange={e => setNewTodo(e.target.value)} value={newTodo} />
-              <div className="add-button" onClick={addTodo}>Create Task</div>
+              <input autoFocus type="text" className="add-todo-input"
+                onChange={e => setNewTodo(e.target.value)} onKeyDown={handleInputKeyDown}
+                value={newTodo} />
+              <div className="button-container">
+                <div className="add-button" onClick={addTodo}>Create Task</div>
+              </div>
             </div>
           </div>
         ) : ""}
