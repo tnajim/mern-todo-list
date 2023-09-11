@@ -77,7 +77,7 @@ function App() {
             <div className={`todo ${todo.completed ? "is-complete" : ""}`} key={todo._id} onClick={() => completeTodo(todo._id)}>
               <div className="checkbox"></div>
               <div className="text">{todo.text}</div>
-              <div className="delete-todo" onClick={() => deleteTodo(todo._id)}>x</div>
+              <div className="delete-todo" onClick={(e) => { e.stopPropagation(); deleteTodo(todo._id) }}>x</div>
             </div>
           ))}
         </div>
