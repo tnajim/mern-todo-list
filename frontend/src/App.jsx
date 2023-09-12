@@ -71,7 +71,7 @@ function App() {
   return (
     <>
       <div className="main-div">
-        <h1>Welcome, User</h1>
+        <h1>Your Todo List</h1>
         <h4>Your Tasks</h4>
         <div className="todos">
           {todos.map(todo => (
