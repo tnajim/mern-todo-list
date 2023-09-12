@@ -1,6 +1,9 @@
 # MERN Todo List Project
 practicing MERN CRUD by building a todo list
 
+### Open live project:
+[MERN Todo App](https://merntodolistapp.onrender.com/)
+
 ## Run project locally in development:
 
 ### 1. Run mongodb locally
@@ -16,5 +19,4 @@ practicing MERN CRUD by building a todo list
 - run ```npm run dev```
 - open the localhost link
 
-## Open live project:
-Link TBA
+
