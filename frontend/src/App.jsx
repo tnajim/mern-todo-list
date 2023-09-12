@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css'
 
-const API_BASE = "http://localhost:3000";
+// const API_BASE = "http://localhost:3000"; // use this for testing locally
+const API_BASE = "https://todolistmernstack.onrender.com/"; // use this for deployment
 
 function App() {
   const [todos, setTodos] = useState([]);
